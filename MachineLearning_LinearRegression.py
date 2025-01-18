@@ -6,6 +6,13 @@ import seaborn as sns
 sns.set_theme()
 from sklearn.linear_model import LinearRegression
 
+# Linear Regression Assumptions
+# 1. Linearity
+# 2. No endogeneity (xi & residual error no correlation)
+# 3. Normality and homoscedasticity
+# 4. No autocorrelation
+# 5. No multicollinearity
+
 def simple_Linear_Regression():
     ##### Sinple Linear Regression ###################
     data = pd.read_csv('LR_real_estate_price_size_year.csv')
