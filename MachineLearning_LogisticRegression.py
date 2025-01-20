@@ -149,7 +149,7 @@ def Test_Model():
     raw_data = pd.read_csv('Logit_Bank_data.csv')
     # We make sure to create a copy of the data before we start altering it. Note that we don't change the original data we loaded.
     data = raw_data.copy()
-    # Removes the index column thata comes with the data
+    # Removes the index column that comes with the data
     data = data.drop(['Unnamed: 0'], axis=1)
     # We use the map function to change any 'yes' values to 1 and 'no'values to 0.
     data['y'] = data['y'].map({'yes': 1, 'no': 0})
