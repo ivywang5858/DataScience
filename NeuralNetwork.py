@@ -5,7 +5,10 @@ import pandas as pd
 import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
+import os
 warnings.filterwarnings('ignore')
+
+current_path = os.path.abspath(os.path.dirname(__file__))
 
 sf.set_api_key('8098dae9-e55b-4c33-8b74-2df2a9d104be')
 sf.set_data_dir('~PycharmProjects/Udemy/DataScience/simfin_data/')
@@ -18,7 +21,8 @@ def get_fi_data():
 
 # Data Scaling using MinMaxScaler()
 def ML_DL():
-    df = pd.read_csv('NeuralNetwork_financial_data.csv')
+    FILE_NAME = "NeuralNetwork_financial_data.csv"
+    df = pd.read_csv(f"{current_path+'/Data/'}{FILE_NAME}")
     apple_df = df[df['Ticker']=='AAPL']
 
     # Python has a module dedicated to deal with date and time data known as datetime

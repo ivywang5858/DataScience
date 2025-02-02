@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set_theme()
 from sklearn.linear_model import LinearRegression
+import os
+
+current_path = os.path.abspath(os.path.dirname(__file__))
 
 # Linear Regression Assumptions
 # 1. Linearity
@@ -15,7 +18,8 @@ from sklearn.linear_model import LinearRegression
 
 def simple_Linear_Regression():
     ##### Sinple Linear Regression ###################
-    data = pd.read_csv('LR_real_estate_price_size_year.csv')
+    FILE_NAME = "LR_real_estate_price_size_year.csv"
+    data = pd.read_csv(f"{current_path + '/Data/'}{FILE_NAME}")
     # print(data.describe())
     x = data['size']
     y = data['price']
@@ -41,7 +45,8 @@ def simple_Linear_Regression():
 
 def multi_Linear_Regression():
     ##### Multi Linear Regression ###################
-    data = pd.read_csv('LR_real_estate_price_size_year.csv')
+    FILE_NAME = "LR_real_estate_price_size_year.csv"
+    data = pd.read_csv(f"{current_path + '/Data/'}{FILE_NAME}")
     print(data.describe())
     x = data[['size', 'year']]
     y = data['price']
@@ -79,7 +84,8 @@ def multi_Linear_Regression():
 
 # Standardize the data --> (x-mean)/std
 def feature_scaling():
-    data = pd.read_csv('LR_real_estate_price_size_year.csv')
+    FILE_NAME = "LR_real_estate_price_size_year.csv"
+    data = pd.read_csv(f"{current_path + '/Data/'}{FILE_NAME}")
     print(data.describe())
     x = data[['size', 'year']]
     y = data['price']
@@ -124,7 +130,8 @@ def feature_scaling():
 
 # Dummy variables and Variance Inflation Factor
 def dummy_VIF():
-    raw_data = pd.read_csv('LR_Dummy_and_VIF.csv')
+    FILE_NAME = "LR_Dummy_and_VIF.csv"
+    raw_data = pd.read_csv(f"{current_path + '/Data/'}{FILE_NAME}")
     print(raw_data.describe(include='all'))
     data = raw_data.drop(['Model'], axis=1)
     no_value = data.isnull().sum()

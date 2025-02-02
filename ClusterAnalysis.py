@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set_theme()
 from sklearn.cluster import KMeans
+import os
+
+current_path = os.path.abspath(os.path.dirname(__file__))
 
 # Unsupervised Learning - Cluster
 # Cluster analysis is used to explore the data and identify patterns
@@ -48,7 +51,8 @@ from sklearn.cluster import KMeans
 
 def K_Means_Clustering():
     # Load the data
-    raw_data = pd.read_csv('Cluster_Countries_exercise.csv')
+    FILE_NAME = "Cluster_Countries_exercise.csv"
+    raw_data = pd.read_csv(f"{current_path+'/Data/'}{FILE_NAME}")
     # print(raw_data.head())
     data = raw_data.copy()
     fig, axs = plt.subplots(2,1)
@@ -70,7 +74,8 @@ def K_Means_Clustering():
 
 def K_Means_Categorical():
     # Load the data
-    raw_data = pd.read_csv('Cluster_Categorical.csv')
+    FILE_NAME = "Cluster_Categorical.csv"
+    raw_data = pd.read_csv(f"{current_path + '/Data/'}{FILE_NAME}")
     data = raw_data.copy()
     print(data.head())
     data_mapped = data.copy()
@@ -92,7 +97,8 @@ def K_Means_Categorical():
 
 def Choose_Num_of_Cluster():
     # Load the data
-    raw_data = pd.read_csv('Cluster_Countries_exercise.csv')
+    FILE_NAME = "Cluster_Countries_exercise.csv"
+    raw_data = pd.read_csv(f"{current_path + '/Data/'}{FILE_NAME}")
     data = raw_data.copy()
     fig,axs = plt.subplots(2,1)
     axs[0].scatter(data['Longitude'], data['Latitude'])
@@ -151,7 +157,8 @@ def Choose_Num_of_Cluster():
 
 def Cluster_Analysis():
     # Load the data
-    data = pd.read_csv('Cluster_iris_dataset.csv')
+    FILE_NAME = "Cluster_iris_dataset.csv"
+    data = pd.read_csv(f"{current_path + '/Data/'}{FILE_NAME}")
     # create a scatter plot based on two corresponding features (sepal_length and sepal_width; OR petal_length and petal_width)
     fig,axs = plt.subplots(3,1)
     axs[0].scatter(data['sepal_length'], data['sepal_width'])
@@ -214,8 +221,7 @@ def Cluster_Analysis():
 # K_Means_Clustering()
 # K_Means_Categorical()
 # Choose_Num_of_Cluster()
-# Cluster_Analysis()
-print(list(map(lambda x: x**2 for x in range(10))))
+Cluster_Analysis()
 
 
 

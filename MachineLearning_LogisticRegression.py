@@ -5,6 +5,9 @@ import statsmodels.api as sm
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set_theme()
+import os
+
+current_path = os.path.abspath(os.path.dirname(__file__))
 
 # Logistic Regression Assumptions
 # 1. Non Linearity (deleted)
@@ -42,7 +45,8 @@ sns.set_theme()
 # The data is based on the marketing campaign efforts of a Portuguese banking institution.
 # The classification goal is to predict if the client will subscribe a term deposit (variable y).
 def Logistic_Regression():
-    raw_data = pd.read_csv('Logit_Example_bank_data.csv')
+    FILE_NAME = "Logit_Example_bank_data.csv"
+    raw_data = pd.read_csv(f"{current_path + '/Data/'}{FILE_NAME}")
     data = raw_data.copy()
     data = data.drop(['Unnamed: 0'], axis=1)
     data['y'] = data['y'].map({'yes':1,'no':0})
@@ -64,7 +68,8 @@ def Logistic_Regression():
     return
 
 def Binary_Predictors_in_Logistic_Regression():
-    raw_data = pd.read_csv('Logit_Bank_data.csv')
+    FILE_NAME = "Logit_Bank_data.csv"
+    raw_data = pd.read_csv(f"{current_path + '/Data/'}{FILE_NAME}")
     # We make sure to create a copy of the data before we start altering it. Note that we don't change the original data we loaded.
     data = raw_data.copy()
     # Removes the index column thata comes with the data
@@ -146,7 +151,8 @@ def confusion_matrix(data, actual_values, model):
 # 3. Calculate the accuracy
 # 4. Create a confusion matrix
 def Test_Model():
-    raw_data = pd.read_csv('Logit_Bank_data.csv')
+    FILE_NAME = "Logit_Bank_data.csv"
+    raw_data = pd.read_csv(f"{current_path + '/Data/'}{FILE_NAME}")
     # We make sure to create a copy of the data before we start altering it. Note that we don't change the original data we loaded.
     data = raw_data.copy()
     # Removes the index column that comes with the data
@@ -174,7 +180,8 @@ def Test_Model():
 
     # Test the model with the new data
     # We have to load data our model has never seen before.
-    raw_data2 = pd.read_csv('Logit_Bank_data_testing.csv')
+    FILE_NAME = "Logit_Bank_data_testing.csv"
+    raw_data2 = pd.read_csv(f"{current_path + '/Data/'}{FILE_NAME}")
     data_test = raw_data2.copy()
     # Removes the index column thata comes with the data
     data_test = data_test.drop(['Unnamed: 0'], axis=1)
