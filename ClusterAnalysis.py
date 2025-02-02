@@ -214,8 +214,8 @@ def Cluster_Analysis():
 # K_Means_Clustering()
 # K_Means_Categorical()
 # Choose_Num_of_Cluster()
-Cluster_Analysis()
-
+# Cluster_Analysis()
+print(list(map(lambda x: x**2 for x in range(10))))
 
 
 

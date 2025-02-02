@@ -178,7 +178,7 @@ def Test_Model():
     data_test = raw_data2.copy()
     # Removes the index column thata comes with the data
     data_test = data_test.drop(['Unnamed: 0'], axis=1)
-    # Coverting the outcome variable into 1s and 0s again.
+    # Converting the outcome variable into 1s and 0s again.
     data_test['y'] = data_test['y'].map({'yes': 1, 'no': 0})
     y_test = data_test['y']
     # We already declared a list called 'estimators' that holds all relevant estimators for our model.
@@ -187,7 +187,7 @@ def Test_Model():
     # Determine the Confusion Matrix and the accuracy of the model with the new data. Note that the model itself stays the same (results_logit).
     # test accuracy
     print(confusion_matrix(X_test, y_test, results_logit))
-    # Looking at the test acccuracy we see a number which is a tiny but lower: 86.04%, compared to 86.29% for train accuracy.
+    # Looking at the test accuracy we see a number which is a tiny but lower: 86.04%, compared to 86.29% for train accuracy.
     # In general, we always expect the test accuracy to be lower than the train one. If the test accuracy is higher, this is just due to luck.
     return
 
