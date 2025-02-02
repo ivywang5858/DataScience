@@ -18,7 +18,7 @@ def get_fi_data():
 
 # Data Scaling using MinMaxScaler()
 def ML_DL():
-    df = pd.read_csv('MiniML_financial_data.csv')
+    df = pd.read_csv('NeuralNetwork_financial_data.csv')
     apple_df = df[df['Ticker']=='AAPL']
 
     # Python has a module dedicated to deal with date and time data known as datetime
